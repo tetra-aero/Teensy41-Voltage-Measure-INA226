@@ -10,7 +10,13 @@ LEDblink led_test;
 
 #include <Wire.h>
 
+// Arduino UNO
 // Connect INA226 with SCL (A5), SDA (A4)
+// Teensy 4.1
+// Connect INA226 with SCL0(19), SDA0(18) : Wire
+// Connect INA226 with SCL1(16), SDA1(17) : Wire1
+// Connect INA226 with SCL2(24), SDA2(15) : Wire2
+// https://github.com/Richard-Gemmell/teensy4_i2c
 
 const byte INA226_ADDR = B1000000;
 
