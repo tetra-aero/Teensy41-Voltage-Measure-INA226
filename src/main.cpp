@@ -18,6 +18,7 @@ LEDblink led_test;
 // Connect INA226 with SCL2(24), SDA2(15) : Wire2
 // https://github.com/Richard-Gemmell/teensy4_i2c
 
+// const byte INA226_ADDR = B1000000;
 const byte INA226_ADDR = B1000101;
 
 const byte INA226_CONFIG    = 0x00;
