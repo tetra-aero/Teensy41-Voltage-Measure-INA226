@@ -18,7 +18,7 @@ LEDblink led_test;
 // Connect INA226 with SCL2(24), SDA2(15) : Wire2
 // https://github.com/Richard-Gemmell/teensy4_i2c
 
-const byte INA226_ADDR = B1000000;
+const byte INA226_ADDR = B1000101;
 
 const byte INA226_CONFIG    = 0x00;
 const byte INA226_SHUNTV    = 0x01;
@@ -60,6 +60,7 @@ return ret;
 void setup() {
     led_test.init(LED_BUILTIN);
     Serial.begin(115200);
+    while (!Serial) {}
 
     Wire.begin();
     // average: 16 times, conversion time: 8.244ms/8.244ms
@@ -77,6 +78,7 @@ void loop() {
     c = INA226_read(INA226_CURRENT);
 
     bv_ *= 1.25;
+    //bv_ *= 1.18;
 
     Serial.print(bv); // bus voltage (reading)
     Serial.print(" ");
@@ -88,8 +90,8 @@ void loop() {
 
     led_test.led_on();
     Serial.println("LED On!!"); 
-    delay(2000); 
+    delay(500); 
     led_test.led_off();
     Serial.println("LED Off!!");
-    delay(2000); 
+    delay(500); 
 }
